@@ -7,11 +7,11 @@
  *   ECOSENSE_EMAIL="you@example.com" ECOSENSE_PASSWORD="secret" node tools/check-api.js
  *
  * Prints every device and every field the API returns.
- * The e-mail address is masked in the output, so you can paste the result
- * into a GitHub issue. The password is never printed.
+ * Personal data (e-mail, public IP, Wi-Fi name, location) is removed from the
+ * output, so you can paste the result into a GitHub issue. The password is never printed.
  */
 
-const { EcoSenseClient } = require('../lib/api');
+const { EcoSenseClient, sanitizeDevice, PRIVATE_FIELDS } = require('../lib/api');
 
 const email = process.env.ECOSENSE_EMAIL;
 const password = process.env.ECOSENSE_PASSWORD;
@@ -36,7 +36,7 @@ function mask(value) {
         console.log('ok');
 
         process.stdout.write('Reading devices ... ');
-        const devices = await client.getDevices();
+        const devices = (await client.getDevices()).map(sanitizeDevice);
         console.log(`${devices.length} device(s)\n`);
 
         devices.forEach((dev, i) => {
@@ -51,7 +51,7 @@ function mask(value) {
             console.log('');
         });
 
-        console.log('Raw JSON (e-mail masked):');
+        console.log(`Raw JSON (removed: ${PRIVATE_FIELDS.join(', ')}):`);
         console.log(mask(JSON.stringify(devices, null, 2)));
     } catch (err) {
         console.log('FAILED');

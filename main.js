@@ -5,7 +5,7 @@
  */
 
 const utils = require('@iobroker/adapter-core');
-const { EcoSenseClient, EcoSenseAuthError } = require('./lib/api');
+const { EcoSenseClient, EcoSenseAuthError, sanitizeDevice, measurementTime } = require('./lib/api');
 
 const PCI_FACTOR = 37; // 1 pCi/L = 37 Bq/m³
 const MIN_INTERVAL_MIN = 5;
@@ -70,7 +70,7 @@ class Ecosense extends utils.Adapter {
     async poll() {
         try {
             const devices = await this.client.getDevices();
-            this.log.debug(`Received ${devices.length} device(s): ${JSON.stringify(devices)}`);
+            this.log.debug(`Received ${devices.length} device(s): ${JSON.stringify(devices.map(sanitizeDevice))}`);
             if (!devices.length) {
                 this.log.warn('No EcoQube devices found in this EcoSense account.');
             }
@@ -98,14 +98,15 @@ class Ecosense extends utils.Adapter {
     async updateDevice(device) {
         const serial = String(device.serial_number ?? device.serialNumber ?? device.serial ?? device.id ?? '').trim();
         if (!serial) {
-            this.log.warn(`Ignoring device without serial number: ${JSON.stringify(device)}`);
+            this.log.warn('Ignoring device without serial number');
             return;
         }
         const devId = serial.replace(this.FORBIDDEN_CHARS, '_');
+        const clean = sanitizeDevice(device);
 
         await this.ensureObject(devId, {
             type: 'device',
-            common: { name: device.name || device.device_name || `EcoQube ${serial}` },
+            common: { name: device.device_name || device.name || `EcoQube ${serial}` },
             native: { serial },
         });
 
@@ -117,6 +118,11 @@ class Ecosense extends utils.Adapter {
         if (bq !== null) {
             level = bq < this.levelWarn ? 0 : bq < this.levelAlarm ? 1 : 2;
         }
+
+        // device counts as online if it reported within 3 of its own upload periods
+        const measured = measurementTime(device);
+        const periodMin = Number(device.polling_period) > 0 ? Number(device.polling_period) : 10;
+        const online = measured === null ? false : Date.now() - measured < periodMin * 3 * 60 * 1000;
 
         await this.writeState(`${devId}.radon`, bq, {
             name: 'Radon concentration',
@@ -143,8 +149,23 @@ class Ecosense extends utils.Adapter {
             type: 'string',
             role: 'text',
         });
-        await this.writeState(`${devId}.json`, JSON.stringify(device), {
-            name: 'Raw device data',
+        await this.writeState(`${devId}.lastMeasurement`, measured, {
+            name: 'Time of the last measurement',
+            type: 'number',
+            role: 'value.time',
+        });
+        await this.writeState(`${devId}.online`, online, {
+            name: 'Device uploaded data recently',
+            type: 'boolean',
+            role: 'indicator.reachable',
+        });
+        await this.writeState(`${devId}.firmware`, device.fw_version ?? null, {
+            name: 'Firmware version',
+            type: 'string',
+            role: 'info.firmware',
+        });
+        await this.writeState(`${devId}.json`, JSON.stringify(clean), {
+            name: 'Device data (without personal data)',
             type: 'string',
             role: 'json',
         });
@@ -155,7 +176,7 @@ class Ecosense extends utils.Adapter {
             common: { name: 'Raw values from the EcoSense cloud' },
             native: {},
         });
-        for (const [key, value] of Object.entries(device)) {
+        for (const [key, value] of Object.entries(clean)) {
             if (value === null || typeof value === 'object') {
                 continue;
             }

@@ -146,4 +146,58 @@ describe('Adapter state mapping', () => {
         await ctx.updateDevice({ serial_number: 'EQ*1', radon_level: 50 });
         assert.ok(objects['EQ_1']);
     });
+
+    // structure as delivered by the real cloud (values anonymised)
+    const realistic = () => ({
+        deactivated: 'N',
+        last_radon_update_time: new Date(Date.now() - 5 * 60000).toISOString().replace('Z', ''),
+        polling_period: 10,
+        device_name: 'Keller',
+        unit: 1,
+        alarm_status: 'off',
+        alarm_value: 300,
+        wifi_name: 'MyWifi',
+        radon_level: 56,
+        external_ip: '203.0.113.7',
+        last_update_ts: Math.floor(Date.now() / 1000) - 300,
+        d_status: 2,
+        device_placement: { mitigation_installed: '0', room_type: 'BS' },
+        geohash: 'N',
+        email: 'someone@example.com',
+        device_location: { city: 'Somewhere', zipcode: '00000' },
+        fw_version: '1.09.A',
+        radon_dou: 24,
+        serial_number: 'IL24EQ000000',
+        config: { level3: 300, level2: 100 },
+    });
+
+    it('maps a realistic cloud record', async () => {
+        const { ctx, objects, states } = fakeAdapter();
+        await ctx.updateDevice(realistic());
+        const id = 'IL24EQ000000';
+        assert.strictEqual(objects[id].common.name, 'Keller');
+        assert.strictEqual(states[`${id}.radon`], 56);
+        assert.strictEqual(states[`${id}.alertLevel`], 0);
+        assert.strictEqual(states[`${id}.firmware`], '1.09.A');
+        assert.strictEqual(states[`${id}.online`], true);
+        assert.ok(Math.abs(states[`${id}.lastMeasurement`] - (Date.now() - 5 * 60000)) < 2000);
+        assert.strictEqual(states[`${id}.raw.radon_dou`], 24);
+    });
+
+    it('never stores personal data', async () => {
+        const { ctx, states } = fakeAdapter();
+        await ctx.updateDevice(realistic());
+        const all = JSON.stringify(states);
+        for (const secret of ['someone@example.com', '203.0.113.7', 'MyWifi', 'Somewhere']) {
+            assert.ok(!all.includes(secret), `${secret} leaked into states`);
+        }
+    });
+
+    it('marks a device offline when its last upload is old', async () => {
+        const { ctx, states } = fakeAdapter();
+        const dev = realistic();
+        dev.last_radon_update_time = new Date(Date.now() - 2 * 3600000).toISOString().replace('Z', '');
+        await ctx.updateDevice(dev);
+        assert.strictEqual(states['IL24EQ000000.online'], false);
+    });
 });

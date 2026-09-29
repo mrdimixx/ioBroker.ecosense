@@ -35,18 +35,24 @@ The EcoQube itself only uploads a new value about every 10 minutes, so a shorter
 
 ### States
 
-For every EcoQube a device named after its serial number is created:
+For every EcoQube a device named after its serial number is created (display name = name from the app):
 
-| State                   | Type    | Description                                                 |
-| ----------------------- | ------- | ----------------------------------------------------------- |
-| `<serial>.radon`        | number  | Radon concentration in Bq/m³ (`null` while the device warms up) |
-| `<serial>.radonPci`     | number  | Radon concentration in pCi/L                                |
-| `<serial>.alertLevel`   | number  | 0 = green, 1 = orange, 2 = red (based on your thresholds)   |
-| `<serial>.alertText`    | string  | `green`, `orange` or `red`                                  |
-| `<serial>.json`         | string  | Complete device data as JSON                                |
-| `<serial>.raw.*`        | mixed   | Every other field the cloud delivers, unchanged             |
-| `info.connection`       | boolean | Last cloud request was successful                           |
-| `info.lastPoll`         | number  | Timestamp of the last successful request                    |
+| State                       | Type    | Description                                                     |
+| --------------------------- | ------- | --------------------------------------------------------------- |
+| `<serial>.radon`            | number  | Radon concentration in Bq/m³ (`null` while the device warms up) |
+| `<serial>.radonPci`         | number  | Radon concentration in pCi/L                                    |
+| `<serial>.alertLevel`       | number  | 0 = green, 1 = orange, 2 = red (based on your thresholds)       |
+| `<serial>.alertText`        | string  | `green`, `orange` or `red`                                      |
+| `<serial>.lastMeasurement`  | number  | Time of the last measurement uploaded by the device             |
+| `<serial>.online`           | boolean | Device uploaded within the last 3 upload periods (~30 min)      |
+| `<serial>.firmware`         | string  | Firmware version                                                |
+| `<serial>.json`             | string  | Device data as JSON (without personal data)                     |
+| `<serial>.raw.*`            | mixed   | Every other simple field the cloud delivers, unchanged          |
+| `info.connection`           | boolean | Last cloud request was successful                               |
+| `info.lastPoll`             | number  | Timestamp of the last successful request                        |
+
+**Privacy:** the cloud also returns the account e-mail, your public IP address, the Wi-Fi name and the
+location entered in the app. The adapter drops these fields – they are never written to states or logs.
 
 ### Testing the cloud access without ioBroker
 
@@ -55,7 +61,7 @@ npm install
 ECOSENSE_EMAIL="you@example.com" ECOSENSE_PASSWORD="secret" npm run check-api
 ```
 
-The script logs in, lists every field the API returns and prints the raw JSON with the e-mail address masked.
+The script logs in, lists every field the API returns and prints the raw JSON without personal data.
 Please attach this output when you open an issue about missing values.
 
 ### Credits
