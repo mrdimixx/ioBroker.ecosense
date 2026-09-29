@@ -5,6 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.ecosense.svg)](https://www.npmjs.com/package/iobroker.ecosense)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ecosense.svg)](https://www.npmjs.com/package/iobroker.ecosense)
 ![Test and Release](https://github.com/mrdimixx/ioBroker.ecosense/workflows/Test%20and%20Release/badge.svg)
+[![Donate](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)](https://paypal.me/dieterstoppel)
 
 ## EcoSense adapter for ioBroker
 
@@ -63,6 +64,12 @@ ECOSENSE_EMAIL="you@example.com" ECOSENSE_PASSWORD="secret" npm run check-api
 
 The script logs in, lists every field the API returns and prints the raw JSON without personal data.
 Please attach this output when you open an issue about missing values.
+
+### Donate
+
+If you like this adapter and want to support its development, you can buy me a coffee:
+
+[![Donate](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)](https://paypal.me/dieterstoppel)
 
 ### Credits
 

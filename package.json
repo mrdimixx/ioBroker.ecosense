@@ -21,6 +21,10 @@
   "bugs": {
     "url": "https://github.com/mrdimixx/ioBroker.ecosense/issues"
   },
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/dieterstoppel"
+  },
   "engines": {
     "node": ">=22"
   },
