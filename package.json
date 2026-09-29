@@ -22,7 +22,7 @@
     "url": "https://github.com/mrdimixx/ioBroker.ecosense/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "main": "main.js",
   "files": [
