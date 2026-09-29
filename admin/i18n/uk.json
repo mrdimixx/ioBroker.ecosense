@@ -1,0 +1,13 @@
+{
+  "EcoSense account": "Обліковий запис EcoSense",
+  "E-mail": "Ел. пошта",
+  "Same login as in the EcoQube app": "Ті самі дані, що й у застосунку EcoQube",
+  "Password": "Пароль",
+  "Polling and thresholds": "Опитування та пороги",
+  "Polling interval": "Інтервал опитування",
+  "The EcoQube uploads a new value about every 10 minutes": "EcoQube надсилає нове значення приблизно кожні 10 хвилин",
+  "Warning threshold (orange)": "Поріг попередження (помаранчевий)",
+  "WHO recommendation: 100 Bq/m³": "Рекомендація ВООЗ: 100 Бк/м³",
+  "Alarm threshold (red)": "Поріг тривоги (червоний)",
+  "German reference value: 300 Bq/m³": "Референтне значення Німеччини: 300 Бк/м³"
+}

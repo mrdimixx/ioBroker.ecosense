@@ -1,0 +1,80 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "hdrAccount": {
+      "type": "header",
+      "text": "EcoSense account",
+      "size": 3,
+      "newLine": true
+    },
+    "email": {
+      "type": "text",
+      "label": "E-mail",
+      "help": "Same login as in the EcoQube app",
+      "trim": true,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 4,
+      "xl": 4
+    },
+    "password": {
+      "type": "password",
+      "label": "Password",
+      "repeat": false,
+      "visible": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 4,
+      "xl": 4
+    },
+    "hdrPolling": {
+      "type": "header",
+      "text": "Polling and thresholds",
+      "size": 3,
+      "newLine": true
+    },
+    "interval": {
+      "type": "number",
+      "label": "Polling interval",
+      "help": "The EcoQube uploads a new value about every 10 minutes",
+      "unit": "min",
+      "min": 5,
+      "max": 1440,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "levelWarn": {
+      "type": "number",
+      "label": "Warning threshold (orange)",
+      "help": "WHO recommendation: 100 Bq/m³",
+      "unit": "Bq/m³",
+      "min": 1,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "levelAlarm": {
+      "type": "number",
+      "label": "Alarm threshold (red)",
+      "help": "German reference value: 300 Bq/m³",
+      "unit": "Bq/m³",
+      "min": 1,
+      "xs": 12,
+      "sm": 12,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    }
+  }
+}

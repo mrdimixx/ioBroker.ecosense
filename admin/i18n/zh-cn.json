@@ -1,0 +1,13 @@
+{
+  "EcoSense account": "EcoSense 账户",
+  "E-mail": "电子邮件",
+  "Same login as in the EcoQube app": "与 EcoQube 应用相同的登录信息",
+  "Password": "密码",
+  "Polling and thresholds": "轮询和阈值",
+  "Polling interval": "轮询间隔",
+  "The EcoQube uploads a new value about every 10 minutes": "EcoQube 大约每 10 分钟上传一个新值",
+  "Warning threshold (orange)": "警告阈值（橙色）",
+  "WHO recommendation: 100 Bq/m³": "世卫组织建议：100 Bq/m³",
+  "Alarm threshold (red)": "报警阈值（红色）",
+  "German reference value: 300 Bq/m³": "德国参考值：300 Bq/m³"
+}

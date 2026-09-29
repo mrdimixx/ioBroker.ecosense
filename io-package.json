@@ -1,0 +1,134 @@
+{
+  "common": {
+    "name": "ecosense",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "первоначальный выпуск",
+        "pt": "lançamento inicial",
+        "nl": "eerste release",
+        "fr": "version initiale",
+        "it": "rilascio iniziale",
+        "es": "versión inicial",
+        "pl": "pierwsze wydanie",
+        "uk": "початковий випуск",
+        "zh-cn": "首次发布"
+      }
+    },
+    "titleLang": {
+      "en": "EcoSense EcoQube (radon)",
+      "de": "EcoSense EcoQube (Radon)",
+      "ru": "EcoSense EcoQube (радон)",
+      "pt": "EcoSense EcoQube (radônio)",
+      "nl": "EcoSense EcoQube (radon)",
+      "fr": "EcoSense EcoQube (radon)",
+      "it": "EcoSense EcoQube (radon)",
+      "es": "EcoSense EcoQube (radón)",
+      "pl": "EcoSense EcoQube (radon)",
+      "uk": "EcoSense EcoQube (радон)",
+      "zh-cn": "EcoSense EcoQube（氡）"
+    },
+    "desc": {
+      "en": "Reads radon values of EcoSense EcoQube monitors from the EcoSense cloud",
+      "de": "Liest Radonwerte von EcoSense-EcoQube-Messgeräten aus der EcoSense-Cloud",
+      "ru": "Считывает значения радона с мониторов EcoSense EcoQube из облака EcoSense",
+      "pt": "Lê os valores de radônio dos monitores EcoSense EcoQube da nuvem EcoSense",
+      "nl": "Leest radonwaarden van EcoSense EcoQube-monitoren uit de EcoSense-cloud",
+      "fr": "Lit les valeurs de radon des moniteurs EcoSense EcoQube depuis le cloud EcoSense",
+      "it": "Legge i valori di radon dei monitor EcoSense EcoQube dal cloud EcoSense",
+      "es": "Lee los valores de radón de los monitores EcoSense EcoQube desde la nube de EcoSense",
+      "pl": "Odczytuje wartości radonu z monitorów EcoSense EcoQube z chmury EcoSense",
+      "uk": "Зчитує значення радону з моніторів EcoSense EcoQube з хмари EcoSense",
+      "zh-cn": "从 EcoSense 云读取 EcoSense EcoQube 监测仪的氡值"
+    },
+    "authors": [
+      "mrdimixx"
+    ],
+    "keywords": [
+      "ecosense",
+      "ecoqube",
+      "radon",
+      "air quality"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "ecosense.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/mrdimixx/ioBroker.ecosense/main/admin/ecosense.png",
+    "readme": "https://github.com/mrdimixx/ioBroker.ecosense/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "climate-control",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.4.10"
+      }
+    ]
+  },
+  "native": {
+    "email": "",
+    "password": "",
+    "interval": 10,
+    "levelWarn": 100,
+    "levelAlarm": 300
+  },
+  "encryptedNative": [
+    "password"
+  ],
+  "protectedNative": [
+    "password"
+  ],
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Connected to EcoSense cloud",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastPoll",
+      "type": "state",
+      "common": {
+        "role": "value.time",
+        "name": "Last successful poll",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "EcoSense account": "EcoSense account",
+  "E-mail": "E-mail",
+  "Same login as in the EcoQube app": "Same login as in the EcoQube app",
+  "Password": "Password",
+  "Polling and thresholds": "Polling and thresholds",
+  "Polling interval": "Polling interval",
+  "The EcoQube uploads a new value about every 10 minutes": "The EcoQube uploads a new value about every 10 minutes",
+  "Warning threshold (orange)": "Warning threshold (orange)",
+  "WHO recommendation: 100 Bq/m³": "WHO recommendation: 100 Bq/m³",
+  "Alarm threshold (red)": "Alarm threshold (red)",
+  "German reference value: 300 Bq/m³": "German reference value: 300 Bq/m³"
+}
