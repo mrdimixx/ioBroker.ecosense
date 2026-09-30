@@ -2,7 +2,21 @@
   "common": {
     "name": "ecosense",
     "version": "0.0.1",
-    "news": {},
+    "news": {
+      "0.0.1": {
+        "en": "initial development version",
+        "de": "erste Entwicklungsversion",
+        "ru": "первая версия для разработки",
+        "pt": "versão inicial de desenvolvimento",
+        "nl": "eerste ontwikkelversie",
+        "fr": "première version de développement",
+        "it": "prima versione di sviluppo",
+        "es": "primera versión de desarrollo",
+        "pl": "pierwsza wersja rozwojowa",
+        "uk": "перша версія для розробки",
+        "zh-cn": "初始开发版本"
+      }
+    },
     "titleLang": {
       "en": "EcoSense EcoQube (radon)",
       "de": "EcoSense EcoQube (Radon)",
