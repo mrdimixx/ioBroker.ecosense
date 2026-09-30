@@ -85,9 +85,12 @@ This adapter is not affiliated with or endorsed by EcoSense / FTLab.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.0.1 (2026-09-29)
+### **WORK IN PROGRESS**
 
 - (mrdimixx) initial release
+- (mrdimixx) radon concentration in Bq/m³ and pCi/L, alert level with configurable thresholds (WHO 100 / German reference value 300 Bq/m³)
+- (mrdimixx) states for last measurement, online status and firmware of each EcoQube
+- (mrdimixx) personal data delivered by the cloud (e-mail, public IP, Wi-Fi name, location) is never stored
 
 ## License
 

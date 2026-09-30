@@ -24,6 +24,9 @@ class Ecosense extends utils.Adapter {
 
         this.client = null;
         this.pollTimer = null;
+        this.intervalMs = 10 * 60 * 1000;
+        this.levelWarn = 100;
+        this.levelAlarm = 300;
         this.knownObjects = new Set();
         this.stopped = false;
     }
@@ -69,6 +72,9 @@ class Ecosense extends utils.Adapter {
 
     async poll() {
         try {
+            if (!this.client) {
+                return;
+            }
             const devices = await this.client.getDevices();
             this.log.debug(`Received ${devices.length} device(s): ${JSON.stringify(devices.map(sanitizeDevice))}`);
             if (!devices.length) {
