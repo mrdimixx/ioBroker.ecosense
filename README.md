@@ -85,7 +85,7 @@ This adapter is not affiliated with or endorsed by EcoSense / FTLab.
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.1.0 (2026-09-30)
 
 - (mrdimixx) initial release
 - (mrdimixx) radon concentration in Bq/m³ and pCi/L, alert level with configurable thresholds (WHO 100 / German reference value 300 Bq/m³)

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "ecosense",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "initial release: radon value, alert level, last measurement, online status and firmware of EcoQube devices",
+        "de": "Erstveröffentlichung: Radonwert, Warnstufe, letzte Messung, Online-Status und Firmware der EcoQube-Geräte",
+        "ru": "первый выпуск: уровень радона, уровень тревоги, последнее измерение, статус подключения и прошивка устройств EcoQube",
+        "pt": "lançamento inicial: valor de radônio, nível de alerta, última medição, status online e firmware dos dispositivos EcoQube",
+        "nl": "eerste release: radonwaarde, alarmniveau, laatste meting, online-status en firmware van EcoQube-apparaten",
+        "fr": "première version : valeur de radon, niveau d'alerte, dernière mesure, statut en ligne et firmware des appareils EcoQube",
+        "it": "prima versione: valore di radon, livello di allarme, ultima misurazione, stato online e firmware dei dispositivi EcoQube",
+        "es": "primera versión: valor de radón, nivel de alerta, última medición, estado en línea y firmware de los dispositivos EcoQube",
+        "pl": "pierwsze wydanie: stężenie radonu, poziom alarmu, ostatni pomiar, status online i oprogramowanie urządzeń EcoQube",
+        "uk": "перший випуск: рівень радону, рівень тривоги, останнє вимірювання, статус онлайн і прошивка пристроїв EcoQube",
+        "zh-cn": "首次发布：EcoQube 设备的氡值、警报级别、最近一次测量、在线状态和固件"
+      },
       "0.0.1": {
         "en": "initial development version",
         "de": "erste Entwicklungsversion",

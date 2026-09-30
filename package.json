@@ -1,6 +1,6 @@
 {
   "name": "iobroker.ecosense",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "EcoSense EcoQube radon monitors via the EcoSense cloud",
   "author": {
     "name": "mrdimixx"
