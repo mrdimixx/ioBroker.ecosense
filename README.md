@@ -11,6 +11,8 @@
 
 Reads the radon concentration of **EcoSense EcoQube** radon monitors from the EcoSense cloud.
 
+Manufacturer / device: [EcoSense EcoQube](https://ecosense.io/products/ecoqube)
+
 Radon is a radioactive, odourless gas and the second most common cause of lung cancer. With this adapter
 you can use the EcoQube measurements in ioBroker – for charts, notifications or to switch a fan.
 

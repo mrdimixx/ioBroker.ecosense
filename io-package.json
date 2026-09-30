@@ -15,19 +15,6 @@
         "pl": "pierwsze wydanie: stężenie radonu, poziom alarmu, ostatni pomiar, status online i oprogramowanie urządzeń EcoQube",
         "uk": "перший випуск: рівень радону, рівень тривоги, останнє вимірювання, статус онлайн і прошивка пристроїв EcoQube",
         "zh-cn": "首次发布：EcoQube 设备的氡值、警报级别、最近一次测量、在线状态和固件"
-      },
-      "0.0.1": {
-        "en": "initial development version",
-        "de": "erste Entwicklungsversion",
-        "ru": "первая версия для разработки",
-        "pt": "versão inicial de desenvolvimento",
-        "nl": "eerste ontwikkelversie",
-        "fr": "première version de développement",
-        "it": "prima versione di sviluppo",
-        "es": "primera versión de desarrollo",
-        "pl": "pierwsza wersja rozwojowa",
-        "uk": "перша версія для розробки",
-        "zh-cn": "初始开发版本"
       }
     },
     "titleLang": {
