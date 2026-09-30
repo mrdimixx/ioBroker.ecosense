@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "ecosense",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "maintenance: fixes from the ioBroker repository checker, releases are now published with npm provenance",
+        "de": "Wartung: Korrekturen aus dem ioBroker-Repository-Checker, Veröffentlichung jetzt mit npm-Provenance",
+        "ru": "обслуживание: исправления по замечаниям ioBroker repository checker, публикация теперь с npm provenance",
+        "pt": "manutenção: correções do verificador de repositório do ioBroker, publicações agora com npm provenance",
+        "nl": "onderhoud: correcties uit de ioBroker repository checker, releases worden nu met npm provenance gepubliceerd",
+        "fr": "maintenance : corrections issues du vérificateur de dépôt ioBroker, publication désormais avec npm provenance",
+        "it": "manutenzione: correzioni dal repository checker di ioBroker, pubblicazione ora con npm provenance",
+        "es": "mantenimiento: correcciones del verificador de repositorios de ioBroker, publicación ahora con npm provenance",
+        "pl": "konserwacja: poprawki z ioBroker repository checker, publikacja teraz z npm provenance",
+        "uk": "обслуговування: виправлення за зауваженнями ioBroker repository checker, публікація тепер з npm provenance",
+        "zh-cn": "维护：修复 ioBroker 仓库检查器发现的问题，现在通过 npm provenance 发布"
+      },
       "0.1.0": {
         "en": "initial release: radon value, alert level, last measurement, online status and firmware of EcoQube devices",
         "de": "Erstveröffentlichung: Radonwert, Warnstufe, letzte Messung, Online-Status und Firmware der EcoQube-Geräte",
@@ -44,7 +57,7 @@
       "zh-cn": "从 EcoSense 云读取 EcoSense EcoQube 监测仪的氡值"
     },
     "authors": [
-      "mrdimixx"
+      "mrdimixx <stoppeld@gmx.de>"
     ],
     "keywords": [
       "ecosense",

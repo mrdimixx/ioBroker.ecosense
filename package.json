@@ -1,9 +1,10 @@
 {
   "name": "iobroker.ecosense",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "EcoSense EcoQube radon monitors via the EcoSense cloud",
   "author": {
-    "name": "mrdimixx"
+    "name": "mrdimixx",
+    "email": "stoppeld@gmx.de"
   },
   "homepage": "https://github.com/mrdimixx/ioBroker.ecosense",
   "license": "MIT",

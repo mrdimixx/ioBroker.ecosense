@@ -87,6 +87,11 @@ This adapter is not affiliated with or endorsed by EcoSense / FTLab.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.1.1 (2026-09-30)
+
+- (mrdimixx) maintenance: author e-mail, request timeout via AbortSignal instead of setTimeout, CI actions updated
+- (mrdimixx) releases are now published via npm trusted publishing (with provenance)
+
 ### 0.1.0 (2026-09-30)
 
 - (mrdimixx) initial release
@@ -98,7 +103,7 @@ This adapter is not affiliated with or endorsed by EcoSense / FTLab.
 
 MIT License
 
-Copyright (c) 2026 mrdimixx
+Copyright (c) 2026 mrdimixx <stoppeld@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
