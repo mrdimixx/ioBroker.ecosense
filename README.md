@@ -99,6 +99,8 @@ This adapter is not affiliated with or endorsed by EcoSense / FTLab.
 - (mrdimixx) states for last measurement, online status and firmware of each EcoQube
 - (mrdimixx) personal data delivered by the cloud (e-mail, public IP, Wi-Fi name, location) is never stored
 
+Older changes can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+
 ## License
 
 MIT License
