@@ -1,10 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
       interval: cron
-      cronjob: "17 3 11 * *"
+      cronjob: '23 3 2 * *'
       timezone: Europe/Berlin
     cooldown:
       default: 7
@@ -13,14 +13,14 @@ updates:
       - mrdimixx
     versioning-strategy: increase
     ignore:
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@types/node'
+        update-types: [ 'version-update:semver-major' ]
 
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
       interval: cron
-      cronjob: "23 4 11 * *"
+      cronjob: '23 3 2 * *'
       timezone: Europe/Berlin
     cooldown:
       default: 7
